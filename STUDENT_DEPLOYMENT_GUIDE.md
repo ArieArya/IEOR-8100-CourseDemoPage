@@ -433,6 +433,9 @@ EOF
 
 ### 📧 Email to TA:
 
+Arie Arya - ana2175@columbia.edu
+Boxuan Li - bl3011@columbia.edu
+
 ```
 Subject: Deployment Request - [Your Name] - [Project Slug]
 
