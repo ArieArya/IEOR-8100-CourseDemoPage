@@ -377,15 +377,17 @@ echo "Test at: https://$CF_DOMAIN/${PROJECT_SLUG}"
 Add the new project to your index.html:
 
 ```html
-<li>
-    <a href="/student-project-slug">
-        <strong>Project Name</strong> - Student Name
-        <br>
-        <small>Brief description</small>
-    </a>
+<li class="project-card">
+	<div class="project-title">
+		<a href="/{project-slug}" target="_blank">{project-title}</a>
+	</div>
+	<p class="project-description">
+		{project-description}
+	</p>
+	<a href="/{project-slug}" target="_blank" class="project-link">View Demo</a>
 </li>
 ```
 
-Push changes to Amplify or S3.
+Update the index.html page in S3 (bucket: course-demos-index/index.html)
 
 ---
