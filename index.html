@@ -81,6 +81,24 @@
                 color: #4a5568;
             }
 
+            .project-authors {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+                font-size: 0.9rem;
+                color: #718096;
+            }
+
+            .project-authors::before {
+                content: '👤';
+                font-size: 1rem;
+            }
+
+            .project-authors span {
+                font-weight: 500;
+            }
+
             .project-description {
                 color: #4a5568;
                 line-height: 1.7;
@@ -154,6 +172,9 @@
                     <div class="project-title">
                         <a href="/agentics-finance" target="_blank">Agentics Finance (Transduction)</a>
                     </div>
+                    <div class="project-authors">
+                        <span>Arie Arya, Boxuan Li</span>
+                    </div>
                     <p class="project-description">
                         An intelligent financial analysis system using logical transduction for time-series analysis of financial datasets.
                     </p>
@@ -163,6 +184,9 @@
                 <li class="project-card">
                     <div class="project-title">
                         <a href="/financial-analyst" target="_blank">Financial Analyst</a>
+                    </div>
+                    <div class="project-authors">
+                        <span>Arie Arya, Boxuan Li</span>
                     </div>
                     <p class="project-description">
                         A comprehensive financial analytics platform built with CrewAI, custom tools, and an isolated code execution environment, capable of performing deep research, producing comprehensive reports with visualizations, and backtesting complex strategies.

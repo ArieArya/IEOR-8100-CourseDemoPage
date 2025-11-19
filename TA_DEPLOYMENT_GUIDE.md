@@ -381,6 +381,9 @@ Add the new project to your index.html:
 	<div class="project-title">
 		<a href="/{project-slug}" target="_blank">{project-title}</a>
 	</div>
+	<div class="project-authors">
+		<span>{project-authors}</span>
+	</div>
 	<p class="project-description">
 		{project-description}
 	</p>
