@@ -5,65 +5,173 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Course Project Demonstrations</title>
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
             body {
-                font-family: system-ui, sans-serif;
-                margin: 2rem auto;
-                max-width: 800px;
-                line-height: 1.6;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                margin: 0;
+                padding: 2rem;
+                background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+                min-height: 100vh;
                 color: #222;
             }
-            h1 {
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            header {
                 text-align: center;
-                color: #444;
+                margin-bottom: 3rem;
+                color: #2d3748;
             }
-            ul {
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+                opacity: 0.95;
+                font-weight: 400;
+            }
+
+            .projects-list {
                 list-style: none;
-                padding: 0;
+                display: grid;
+                gap: 1.5rem;
             }
-            li {
-                background: #f8f9fa;
-                border-radius: 10px;
-                margin: 0.5rem 0;
-                padding: 0.75rem 1rem;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-                transition: transform 0.15s ease;
+
+            .project-card {
+                background: white;
+                border-radius: 12px;
+                padding: 1.75rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                border-left: 4px solid #4a5568;
             }
-            li:hover {
-                transform: translateY(-2px);
-                background: #f0f0f0;
+
+            .project-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
             }
-            a {
-                text-decoration: none;
-                color: #0070f3;
+
+            .project-title {
+                font-size: 1.5rem;
                 font-weight: 600;
+                margin-bottom: 0.75rem;
+                color: #1a202c;
             }
-            a:hover {
-                text-decoration: underline;
+
+            .project-title a {
+                text-decoration: none;
+                color: #2d3748;
+                transition: color 0.2s ease;
             }
+
+            .project-title a:hover {
+                color: #4a5568;
+            }
+
+            .project-description {
+                color: #4a5568;
+                line-height: 1.7;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .project-description.placeholder {
+                color: #a0aec0;
+                font-style: italic;
+            }
+
+            .project-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+                background: #4a5568;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                font-weight: 500;
+                font-size: 0.9rem;
+                transition: all 0.2s ease;
+            }
+
+            .project-link:hover {
+                background: #2d3748;
+                transform: translateX(4px);
+            }
+
+            .project-link::after {
+                content: '→';
+                font-size: 1.2rem;
+            }
+
             footer {
                 text-align: center;
-                margin-top: 2rem;
-                color: #888;
-                font-size: 0.9em;
+                margin-top: 3rem;
+                color: #718096;
+                font-size: 0.9rem;
+                opacity: 0.9;
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 1rem;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+
+                .project-card {
+                    padding: 1.25rem;
+                }
             }
         </style>
     </head>
     <body>
-        <h1>Course Project Demonstrations</h1>
+        <div class="container">
+            <header>
+                <h1>Course Project Demonstrations</h1>
+                <p class="subtitle">
+                    Explore Streamlit applications built by IEOR 8100 students
+                </p>
+            </header>
 
-        <p>
-            Below are links to each student’s Streamlit project. Click a name to
-            view their live demo.
-        </p>
+            <ul class="projects-list">
+                <li class="project-card">
+                    <div class="project-title">
+                        <a href="/agentics-finance" target="_blank">Agentics Finance (Transduction)</a>
+                    </div>
+                    <p class="project-description">
+                        An intelligent financial analysis system using logical transduction for time-series analysis of financial datasets.
+                    </p>
+                    <a href="/agentics-finance" target="_blank" class="project-link">View Demo</a>
+                </li>
 
-        <ul>
-            <li>
-                <a href="/agentics-finance" target="_blank"
-                    >Agentics Finance</a
-                >
-            </li>
-        </ul>
+                <li class="project-card">
+                    <div class="project-title">
+                        <a href="/financial-analyst" target="_blank">Financial Analyst</a>
+                    </div>
+                    <p class="project-description">
+                        A comprehensive financial analytics platform built with CrewAI, custom tools, and an isolated code execution environment, capable of performing deep research, producing comprehensive reports with visualizations, and backtesting complex strategies.
+                    </p>
+                    <a href="/financial-analyst" target="_blank" class="project-link">View Demo</a>
+                </li>
+            </ul>
 
-        <footer>© 2025 Columbia University – IEOR 8100 Course</footer>
+            <footer>© 2025 Columbia University – IEOR 8100 Course</footer>
+        </div>
     </body>
 </html>
