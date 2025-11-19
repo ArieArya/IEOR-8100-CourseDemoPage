@@ -391,6 +391,8 @@ Add the new project to your index.html:
 </li>
 ```
 
-Update the index.html page in S3 (bucket: course-demos-index/index.html)
+Update the index.html page in S3 (bucket: course-demos-index/index.html).
+
+In order for the page to be updated in CloudFront, you must invalidate the cache. Go to CloudFront > Invalidations > Create Invalidation > add /index.html. This should invalidate the cache and update the page.
 
 ---
