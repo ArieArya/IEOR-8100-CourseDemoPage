@@ -445,7 +445,9 @@ I've prepared my Streamlit project for deployment. Here are the details:
 
 Repository: [GitHub link or attached zip]
 Project Slug: your-project-slug
+Authors: author-list
 Main File: app.py
+Short Project Description: your-project-description
 
 Environment Variables Required:
 - GOOGLE_API_KEY: ...
