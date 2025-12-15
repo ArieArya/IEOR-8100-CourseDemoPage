@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Course Project Demonstrations</title>
+        <title>Project Demonstrations</title>
         <style>
             * {
                 margin: 0;
@@ -12,90 +12,96 @@
             }
 
             body {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
                     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
                 margin: 0;
                 padding: 2rem;
-                background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+                background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
                 min-height: 100vh;
-                color: #222;
+                color: #334e68;
+                line-height: 1.6;
             }
 
             .container {
-                max-width: 900px;
+                max-width: 1000px;
                 margin: 0 auto;
             }
 
             header {
                 text-align: center;
-                margin-bottom: 3rem;
-                color: #2d3748;
+                margin-bottom: 4rem;
+                color: #102a43;
             }
 
             h1 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 0.5rem;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                font-size: 3rem;
+                font-weight: 800;
+                margin-bottom: 1rem;
+                letter-spacing: -0.02em;
+                background: linear-gradient(120deg, #334e68, #102a43);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
 
             .subtitle {
-                font-size: 1.1rem;
-                opacity: 0.95;
-                font-weight: 400;
+                font-size: 1.25rem;
+                color: #627d98;
+                font-weight: 500;
+                max-width: 600px;
+                margin: 0 auto;
             }
 
             .projects-list {
                 list-style: none;
                 display: grid;
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
             .project-card {
                 background: white;
-                border-radius: 12px;
-                padding: 1.75rem;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
-                    0 1px 3px rgba(0, 0, 0, 0.08);
-                transition: all 0.3s ease;
-                border-left: 4px solid #4a5568;
+                border-radius: 16px;
+                padding: 2.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                            0 2px 4px -1px rgba(0, 0, 0, 0.03);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                border: 1px solid rgba(255, 255, 255, 0.5);
             }
 
             .project-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15),
-                    0 4px 8px rgba(0, 0, 0, 0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                            0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
 
             .project-title {
-                font-size: 1.5rem;
-                font-weight: 600;
-                margin-bottom: 0.75rem;
-                color: #1a202c;
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
             }
 
             .project-title a {
                 text-decoration: none;
-                color: #2d3748;
+                color: #102a43;
                 transition: color 0.2s ease;
             }
 
             .project-title a:hover {
-                color: #4a5568;
+                color: #3e64ff;
             }
 
             .project-authors {
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
-                margin-bottom: 0.75rem;
-                font-size: 0.9rem;
-                color: #718096;
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+                color: #829ab1;
             }
 
             .project-authors::before {
                 content: "👤";
-                font-size: 1rem;
+                filter: grayscale(1);
+                opacity: 0.7;
             }
 
             .project-authors span {
@@ -103,60 +109,90 @@
             }
 
             .project-description {
-                color: #4a5568;
-                line-height: 1.7;
-                margin-bottom: 1rem;
-                font-size: 0.95rem;
+                color: #486581;
+                line-height: 1.75;
+                margin-bottom: 2rem;
+                font-size: 1rem;
             }
 
-            .project-description.placeholder {
-                color: #a0aec0;
-                font-style: italic;
+            .project-actions {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
             }
 
             .project-link {
                 display: inline-flex;
                 align-items: center;
                 gap: 0.5rem;
-                padding: 0.5rem 1rem;
-                background: #4a5568;
+                padding: 0.75rem 1.5rem;
+                background: #3e64ff;
                 color: white;
                 text-decoration: none;
-                border-radius: 6px;
-                font-weight: 500;
-                font-size: 0.9rem;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 0.95rem;
                 transition: all 0.2s ease;
+                box-shadow: 0 4px 6px rgba(62, 100, 255, 0.2);
             }
 
             .project-link:hover {
-                background: #2d3748;
-                transform: translateX(4px);
+                background: #2b4ecf;
+                transform: translateY(-1px);
+                box-shadow: 0 6px 8px rgba(62, 100, 255, 0.3);
             }
 
-            .project-link::after {
+            .project-link.secondary {
+                background: white;
+                color: #3e64ff;
+                border: 2px solid #e1e7ef;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            }
+
+            .project-link.secondary:hover {
+                border-color: #3e64ff;
+                background: #f8faff;
+                transform: translateY(-1px);
+            }
+
+            .project-link.secondary::after {
+                content: "📺";
+                font-size: 1.1rem;
+            }
+
+            .project-link:not(.secondary)::after {
                 content: "→";
                 font-size: 1.2rem;
             }
 
             footer {
                 text-align: center;
-                margin-top: 3rem;
-                color: #718096;
+                margin-top: 4rem;
+                color: #829ab1;
                 font-size: 0.9rem;
-                opacity: 0.9;
+                padding-bottom: 2rem;
             }
 
             @media (max-width: 768px) {
                 body {
-                    padding: 1rem;
+                    padding: 1.5rem;
                 }
 
                 h1 {
-                    font-size: 2rem;
+                    font-size: 2.25rem;
                 }
 
                 .project-card {
-                    padding: 1.25rem;
+                    padding: 1.5rem;
+                }
+
+                .project-actions {
+                    flex-direction: column;
+                }
+
+                .project-link {
+                    width: 100%;
+                    justify-content: center;
                 }
             }
         </style>
@@ -189,9 +225,10 @@
                         visualizing time-series price dynamics with interactive
                         Plotly charts.
                     </p>
-                    <a href="/polymarkets" target="_blank" class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/polymarkets" target="_blank" class="project-link">View Demo</a>
+                        <a href="#" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
 
                 <li class="project-card">
@@ -213,12 +250,10 @@
                         producing comprehensive reports with visualizations, and
                         backtesting complex strategies.
                     </p>
-                    <a
-                        href="/financial-analyst"
-                        target="_blank"
-                        class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/financial-analyst" target="_blank" class="project-link">View Demo</a>
+                        <a href="https://drive.google.com/file/d/1V7OwgAqq5qmZXypyk8HTyreFZGh5CTdr/view" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
 
                 <li class="project-card">
@@ -237,12 +272,10 @@
                         visualizes trading signals, market narratives, and
                         historical sentiment-price dynamics.
                     </p>
-                    <a
-                        href="/bitcoin-sentiment-oracle"
-                        target="_blank"
-                        class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/bitcoin-sentiment-oracle" target="_blank" class="project-link">View Demo</a>
+                        <a href="#" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
 
                 <li class="project-card">
@@ -262,12 +295,10 @@
                         classification and sentiment, and LangGraph + LLMs for
                         summarization and prediction orchestration.
                     </p>
-                    <a
-                        href="/agentic-macro-fincast"
-                        target="_blank"
-                        class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/agentic-macro-fincast" target="_blank" class="project-link">View Demo</a>
+                        <a href="https://youtu.be/OYCg4yQ-jno?si=iL53fRWw0LOTkbpS&t=455" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
 
                 <li class="project-card">
@@ -287,12 +318,10 @@
                         that autonomously creates, validates, and refines
                         Solidity contracts from natural language descriptions.
                     </p>
-                    <a
-                        href="/smart-contracts"
-                        target="_blank"
-                        class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/smart-contracts" target="_blank" class="project-link">View Demo</a>
+                        <a href="https://www.youtube.com/watch?v=2RQG0wKUiZ4" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
 
                 <li class="project-card">
@@ -314,9 +343,10 @@
                         board events, analyst rating changes, macro factors, and
                         news, and synthesizes them into one coherent narrative.
                     </p>
-                    <a href="/stock-report" target="_blank" class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/stock-report" target="_blank" class="project-link">View Demo</a>
+                        <a href="https://youtu.be/uVMrp3yoU0Q" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
 
                 <li class="project-card">
@@ -336,12 +366,10 @@
                         optimization, and reasoning to autonomously manage
                         battery arbitrage in power markets.
                     </p>
-                    <a
-                        href="/agenticsenergy-streamlit"
-                        target="_blank"
-                        class="project-link"
-                        >View Demo</a
-                    >
+                    <div class="project-actions">
+                        <a href="/agenticsenergy-streamlit" target="_blank" class="project-link">View Demo</a>
+                        <a href="#" target="_blank" class="project-link secondary">View Video</a>
+                    </div>
                 </li>
             </ul>
             <footer>© 2025 Columbia University – IEOR 8100 Course</footer>
